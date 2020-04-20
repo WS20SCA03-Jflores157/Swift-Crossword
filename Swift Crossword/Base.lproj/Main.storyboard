@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -160,7 +160,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0N3-Pb-IQL">
-                                <rect key="frame" x="73" y="478" width="141" height="34"/>
+                                <rect key="frame" x="139" y="476" width="141" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -169,28 +169,21 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Word #:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SPa-Rt-0UV">
-                                <rect key="frame" x="84" y="520" width="86" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="23"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KxX-n5-D9k">
-                                <rect key="frame" x="191" y="520" width="13" height="26"/>
+                                <rect key="frame" x="71" y="520" width="86" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PU2-ab-uyt">
-                                <rect key="frame" x="228" y="480" width="71" height="30"/>
+                                <rect key="frame" x="20" y="478" width="111" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Submit">
+                                <state key="normal" title="Hide Keyboard">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="submitAnswer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zgE-6J-eMO"/>
+                                    <action selector="cancel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zgE-6J-eMO"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IbM-L5-Ynb">
@@ -206,7 +199,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" wraps="YES" value="1" minimumValue="1" maximumValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="KaM-Es-IVH">
-                                <rect key="frame" x="103" y="554" width="94" height="32"/>
+                                <rect key="frame" x="297" y="477" width="94" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="valueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="4PT-Wy-SBs"/>
@@ -233,6 +226,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KxX-n5-D9k">
+                                <rect key="frame" x="171" y="520" width="13" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -241,30 +241,30 @@
                         <outlet property="answerField" destination="0N3-Pb-IQL" id="iCI-Ql-u0h"/>
                         <outlet property="answerMessage" destination="FZ6-NN-PXT" id="M8e-K0-J7I"/>
                         <outlet property="wordNumber" destination="KxX-n5-D9k" id="dT8-ei-8e4"/>
-                        <outletCollection property="word1" destination="3jO-m1-nxa" collectionClass="NSMutableArray" id="BbL-bp-ndL"/>
-                        <outletCollection property="word1" destination="o49-d8-HCx" collectionClass="NSMutableArray" id="hNP-ef-gWx"/>
-                        <outletCollection property="word1" destination="iHr-KK-ECM" collectionClass="NSMutableArray" id="G10-nc-duN"/>
-                        <outletCollection property="word2" destination="o49-d8-HCx" collectionClass="NSMutableArray" id="1Wi-oC-6xm"/>
-                        <outletCollection property="word2" destination="IR7-7F-xk0" collectionClass="NSMutableArray" id="J61-VU-HQx"/>
-                        <outletCollection property="word2" destination="uhY-C7-kwX" collectionClass="NSMutableArray" id="0Ip-Qd-a8u"/>
-                        <outletCollection property="word3" destination="uhY-C7-kwX" collectionClass="NSMutableArray" id="Nxn-eO-PMA"/>
-                        <outletCollection property="word3" destination="cK4-cK-fO0" collectionClass="NSMutableArray" id="lIK-mS-9sS"/>
-                        <outletCollection property="word3" destination="Tid-48-aCl" collectionClass="NSMutableArray" id="29l-x4-DTk"/>
-                        <outletCollection property="word3" destination="5lL-FP-LcY" collectionClass="NSMutableArray" id="Ybc-7a-nYg"/>
-                        <outletCollection property="word3" destination="YIW-DK-9TA" collectionClass="NSMutableArray" id="tbY-2L-XEI"/>
-                        <outletCollection property="word3" destination="iTK-eb-fc6" collectionClass="NSMutableArray" id="HIn-tb-Nc7"/>
-                        <outletCollection property="word3" destination="jwc-79-Lnf" collectionClass="NSMutableArray" id="0Uj-bN-NBD"/>
-                        <outletCollection property="word4" destination="eqG-Wl-hIt" collectionClass="NSMutableArray" id="FNN-zg-lNL"/>
-                        <outletCollection property="word4" destination="9M3-RU-6qY" collectionClass="NSMutableArray" id="kdm-uS-TMn"/>
-                        <outletCollection property="word4" destination="nfQ-bX-Q43" collectionClass="NSMutableArray" id="NBa-X0-Z8N"/>
-                        <outletCollection property="word5" destination="7ug-Tc-qKS" collectionClass="NSMutableArray" id="4DT-Uo-4Ip"/>
-                        <outletCollection property="word5" destination="Tid-48-aCl" collectionClass="NSMutableArray" id="0We-PN-KDS"/>
-                        <outletCollection property="word5" destination="Qvc-h9-rMm" collectionClass="NSMutableArray" id="Jl9-Oa-xJz"/>
-                        <outletCollection property="word5" destination="isF-OT-UuG" collectionClass="NSMutableArray" id="nhE-HP-pDG"/>
-                        <outletCollection property="word5" destination="nfQ-bX-Q43" collectionClass="NSMutableArray" id="9Mu-Oq-M0s"/>
-                        <outletCollection property="word6" destination="9BC-Qg-Gj6" collectionClass="NSMutableArray" id="EJF-4M-W9k"/>
-                        <outletCollection property="word6" destination="YIW-DK-9TA" collectionClass="NSMutableArray" id="INV-vf-U5r"/>
-                        <outletCollection property="word6" destination="xfs-iy-oov" collectionClass="NSMutableArray" id="GOO-xv-xEn"/>
+                        <outletCollection property="word0" destination="3jO-m1-nxa" collectionClass="NSMutableArray" id="BbL-bp-ndL"/>
+                        <outletCollection property="word0" destination="o49-d8-HCx" collectionClass="NSMutableArray" id="hNP-ef-gWx"/>
+                        <outletCollection property="word0" destination="iHr-KK-ECM" collectionClass="NSMutableArray" id="G10-nc-duN"/>
+                        <outletCollection property="word1" destination="o49-d8-HCx" collectionClass="NSMutableArray" id="1Wi-oC-6xm"/>
+                        <outletCollection property="word1" destination="IR7-7F-xk0" collectionClass="NSMutableArray" id="J61-VU-HQx"/>
+                        <outletCollection property="word1" destination="uhY-C7-kwX" collectionClass="NSMutableArray" id="0Ip-Qd-a8u"/>
+                        <outletCollection property="word2" destination="uhY-C7-kwX" collectionClass="NSMutableArray" id="Nxn-eO-PMA"/>
+                        <outletCollection property="word2" destination="cK4-cK-fO0" collectionClass="NSMutableArray" id="lIK-mS-9sS"/>
+                        <outletCollection property="word2" destination="Tid-48-aCl" collectionClass="NSMutableArray" id="29l-x4-DTk"/>
+                        <outletCollection property="word2" destination="5lL-FP-LcY" collectionClass="NSMutableArray" id="Ybc-7a-nYg"/>
+                        <outletCollection property="word2" destination="YIW-DK-9TA" collectionClass="NSMutableArray" id="tbY-2L-XEI"/>
+                        <outletCollection property="word2" destination="iTK-eb-fc6" collectionClass="NSMutableArray" id="HIn-tb-Nc7"/>
+                        <outletCollection property="word2" destination="jwc-79-Lnf" collectionClass="NSMutableArray" id="0Uj-bN-NBD"/>
+                        <outletCollection property="word3" destination="eqG-Wl-hIt" collectionClass="NSMutableArray" id="FNN-zg-lNL"/>
+                        <outletCollection property="word3" destination="9M3-RU-6qY" collectionClass="NSMutableArray" id="kdm-uS-TMn"/>
+                        <outletCollection property="word3" destination="nfQ-bX-Q43" collectionClass="NSMutableArray" id="NBa-X0-Z8N"/>
+                        <outletCollection property="word4" destination="7ug-Tc-qKS" collectionClass="NSMutableArray" id="4DT-Uo-4Ip"/>
+                        <outletCollection property="word4" destination="Tid-48-aCl" collectionClass="NSMutableArray" id="0We-PN-KDS"/>
+                        <outletCollection property="word4" destination="Qvc-h9-rMm" collectionClass="NSMutableArray" id="Jl9-Oa-xJz"/>
+                        <outletCollection property="word4" destination="isF-OT-UuG" collectionClass="NSMutableArray" id="nhE-HP-pDG"/>
+                        <outletCollection property="word4" destination="nfQ-bX-Q43" collectionClass="NSMutableArray" id="9Mu-Oq-M0s"/>
+                        <outletCollection property="word5" destination="9BC-Qg-Gj6" collectionClass="NSMutableArray" id="EJF-4M-W9k"/>
+                        <outletCollection property="word5" destination="YIW-DK-9TA" collectionClass="NSMutableArray" id="INV-vf-U5r"/>
+                        <outletCollection property="word5" destination="xfs-iy-oov" collectionClass="NSMutableArray" id="GOO-xv-xEn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

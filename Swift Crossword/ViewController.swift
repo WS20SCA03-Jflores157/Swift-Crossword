@@ -8,8 +8,15 @@
 
 import UIKit
 
+struct Word {
+    let text: String;
+    let arrayOfLabels: [UILabel];
+}
+
 class ViewController: UIViewController, UITextFieldDelegate {
     
+    
+    @IBOutlet var word0: [UILabel]!
     
     @IBOutlet var word1: [UILabel]!
     
@@ -21,8 +28,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var word5: [UILabel]!
     
-    @IBOutlet var word6: [UILabel]!
-    
     
     @IBOutlet weak var wordNumber: UILabel!
     
@@ -30,91 +35,87 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var answerMessage: UILabel!
     
+    var words: [Word] = []
+    var n: Int = 0
+    var cancelled: Bool = false
     
-    let answers: [String] = ["and","not","ternary","let","print","var"]
-    
-    var labelIndex: Int = 0
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+         words = [
+                   Word(text: "and",     arrayOfLabels: word0),
+                   Word(text: "not",     arrayOfLabels: word1),
+                   Word(text: "ternary", arrayOfLabels: word2),
+                   Word(text: "let",     arrayOfLabels: word3),
+                   Word(text: "print",   arrayOfLabels: word4),
+                   Word(text: "var",     arrayOfLabels: word5)
+               ]
+        newNumber(n)
     }
     
     
-    @IBAction func valueChanged(_ sender: UIStepper) {
-        
-        let currentWord: Int = Int(sender.value)
-        wordNumber.text = "\(currentWord)"
-        
-        if answerField.text != "" && answerMessage.text != "" {
-            answerField.text = ""
-            answerMessage.text = ""
-        }
-        
+     @IBAction func valueChanged(_ sender: UIStepper) {
+           newNumber(Int(sender.value))       //sender.value in range 0 to 5 inclusive
+       }
+    
+    //Called at start of program, and when user touches the stepper.
+
+       func newNumber(_ i: Int) {
+           //Clear out the background color of the previous word.
+           for label: UILabel in words[n].arrayOfLabels {
+               label.backgroundColor = .clear;
+           }
+
+           n = i;
+           wordNumber.text = "\(n + 1)"; //Humans like to count starting at 1.
+           answerMessage.text = "";
+           answerField.text = "";
+           answerField.resignFirstResponder();   //Dismiss the keyboard.
+
+           //Give the current word a yellow background.
+           for label: UILabel in words[n].arrayOfLabels {
+               label.backgroundColor = .yellow;
+           }
+       }
+    
+    
+    @IBAction func cancel(_ sender: UIButton) {
+        cancelled = true;
+        answerField.resignFirstResponder();   //Dismiss the keyboard.
     }
     
     
-    @IBAction func submitAnswer(_ sender: UIButton) {
-        let currentAnswer: String = answers[Int(wordNumber.text!)! - 1]
-        
-        let answerLabels: [[UILabel]] = [word1,word2,word3,word4,word5,word6]
-        
-        if answerField.text! == ""{
-            answerMessage.text = "Please enter an answer."
-        }
-            
-        else{
-            
-            if answerField.text!.lowercased() == currentAnswer  {
-                answerMessage.text = "Correct"
-                
-                
-                
-                for char in answerField.text!{
-                    
-                    
-                    let currentWord: [UILabel] = answerLabels[Int(wordNumber.text!)! - 1]
-                    let letter: String = char.uppercased()
-                    
-                    currentWord[labelIndex].text = letter
-                    
-                    labelIndex += 1
-                    
-                }
-                
-                
-                labelIndex = 0
-                
-                
-                
-                
-                
-            }
-            else{
-                answerMessage.text = "Wrong Answer. Try Again."
-            }
-            
-        }
-    }
-    
-    
+        //Called when return key on UITextField's keyboard is pressed.
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        
-        let decimalCharacters: CharacterSet = CharacterSet.decimalDigits
-        
-        let decimalRange: Range<String.Index>? = textField.text!.rangeOfCharacter(from: decimalCharacters)
-        
-        if textField.text!.count < 3 || decimalRange != nil  {
-            answerMessage.text = "Please enter a valid word."
+        let s: String = textField.text!;
+        if s.count < 3 {
+            answerMessage.text = "Need at least 3 letters.";
+        } else if s.lowercased().first(where: {!"abcdefghijklmnopqrstuvwxyz".contains($0)}) != nil {
+            answerMessage.text = "Only letters!";
         }
-        else{
-            answerMessage.text = ""
-            textField.resignFirstResponder()
+
+        textField.resignFirstResponder();   //Dismiss the keyboard.
+        return true;
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if cancelled {
+            cancelled = false;
+        } else if answerField.text! == "" {
+            answerMessage.text = "Please enter an answer."
+        } else if answerField.text!.lowercased() != words[n].text {
+            answerMessage.text = "Wrong Answer. Try Again."
+        } else {
+            answerMessage.text = "Correct";
+            var i: Int = 0;
+            for char: Character in words[n].text.uppercased() {
+                print("char")
+                words[n].arrayOfLabels[i].text = String(char);
+                i += 1;
+            }
         }
-        
-        
-        return true
     }
     
     
